@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const { errors } = require('celebrate');
 const routes = require('./routes');
 
 
@@ -9,6 +10,7 @@ app.use(cors());
 //convertendo o JSON
 app.use(express.json());
 app.use(routes);
+app.use(errors());
 
 /*
 * criando rotas e recursos
@@ -40,4 +42,4 @@ app.use(routes);
 */
 
 // porta que vai abrir o localhost
-app.listen(3333);
+module.exports = app;
